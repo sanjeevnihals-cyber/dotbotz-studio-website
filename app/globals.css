@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-accent: #5b5fff;
+  --color-card: color-mix(in srgb, var(--color-fg) 3%, transparent);
+  --color-border: color-mix(in srgb, var(--color-accent) 24%, var(--color-fg) 16%, transparent);
+  --color-muted: color-mix(in srgb, var(--color-fg) 72%, transparent);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--color-fg) 8%, transparent), transparent 25%),
+    radial-gradient(circle at 80% 60%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 30%),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 2px, color-mix(in srgb, var(--color-fg) 4%, transparent) 3px);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
